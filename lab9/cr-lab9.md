@@ -6,21 +6,22 @@
 yasma@Yasma:~$ **cp /home/yasma/Bureau/chahla/lab7/max.c /home/yasma/Bureau/chahla/lab7/max.h /home/yasma/Bureau/chahla/lab7/min.c /home/yasma/Bureau/chahla/lab7/min.h /home/yasma/Bureau/chahla/lab7/var.c /home/yasma/Bureau/chahla/lab7/var.h /home/yasma/Bureau/chahla/lab9/**
 
 2. 
-yasma@Yasma:~/Bureau/chahla/lab9$ **gcc -c -fPIC max.c min.c var.c**
+`yasma@Yasma:~/Bureau/chahla/lab9$ gcc -c -fPIC max.c min.c var.c`
 
 3. 
 
-yasma@Yasma:~/Bureau/chahla/lab9$ **gcc -shared -o libpartager.so max.o min.o var.o**
+`yasma@Yasma:~/Bureau/chahla/lab9$ gcc -shared -o libpartager.so max.o min.o var.o`
 
 4. 
-yasma@Yasma:~$ **sudo mv /home/yasma/Bureau/chahla/lab9/libpartager.so /opt/lib**
-yasma@Yasma:~$ **cd /opt/lib**
-yasma@Yasma:/opt/lib$ **ls**
+```
+yasma@Yasma:~$ sudo mv /home/yasma/Bureau/chahla/lab9/libpartager.so /opt/lib
+yasma@Yasma:~$ cd /opt/lib
+yasma@Yasma:/opt/lib$ ls
 liboutils.a  libpartager.so  var.o
-
+```
 5. 
 
-yasma@Yasma:~/Bureau/chahla/lab9$ **gcc main.c -L/opt/lib -lpartager -o exemain**
+`yasma@Yasma:~/Bureau/chahla/lab9$ gcc main.c -L/opt/lib -lpartager -o exemain`
 
 
 6. En executant avec la commande **./exemain** on a:
@@ -38,8 +39,12 @@ yasma@Yasma:~/Bureau/chahla/lab9$ **echo $LD_LIBRARY_PATH**
 yasma@Yasma:~/Bureau/chahla/lab9$ **export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/lib/**
 
 9. 
-yasma@Yasma:~/Bureau/chahla/lab9$ **gcc main.c -L/opt/lib -lpartager -o exemain**
-yasma@Yasma:~/Bureau/chahla/lab9$ **./exemain**
+
+```
+yasma@Yasma:~/Bureau/chahla/lab9$ gcc main.c -L/opt/lib -lpartager -o exemain
+yasma@Yasma:~/Bureau/chahla/lab9$ ./exemain
+
+```
 
 - Le programme s'execute car on a rajouter le chemin des bibliothèques mais quand on ferme et on lance le terminal à nouveau l'excution ne se fait pas!
 
