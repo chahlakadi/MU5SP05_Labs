@@ -6,10 +6,11 @@
 yasma@Yasma:~$ **cp /home/yasma/Bureau/chahla/lab7/max.c /home/yasma/Bureau/chahla/lab7/max.h /home/yasma/Bureau/chahla/lab7/min.c /home/yasma/Bureau/chahla/lab7/min.h /home/yasma/Bureau/chahla/lab7/var.c /home/yasma/Bureau/chahla/lab7/var.h /home/yasma/Bureau/chahla/lab7/test.c /home/yasma/Bureau/chahla/lab10/**
 
 - On verifie qu'ils sont bien copier dans le lab10
-
-yasma@Yasma:~$ **cd Bureau/chahla/lab10/**
-yasma@Yasma:~/Bureau/chahla/lab10$ **ls**
+```
+yasma@Yasma:~$ cd Bureau/chahla/lab10/
+yasma@Yasma:~/Bureau/chahla/lab10$ ls
 lab10.txt  max.c  max.h  min.c  min.h  test.c  var.c  var.h
+```
 
 2. Pour créer un makefile on utilise la commande suivante:
 
@@ -35,20 +36,22 @@ clean:
 ```
 
 3. Exécution avec les différentes commandes (make, make install, make min.o, make clean)
-
-yasma@Yasma:~/Bureau/chahla/lab10$ **make**
+```
+yasma@Yasma:~/Bureau/chahla/lab10$ make
 gcc -Wall -c max.c -o max.o 
 gcc -Wall -c min.c -o min.o
 gcc -Wall -c var.c -o var.o
 gcc -Wall test.o max.o min.o var.o -o My_binaire
+```
 
-yasma@Yasma:~/Bureau/chahla/lab10$ **make install**
-mv My_binaire /home/yasma 
-yasma@Yasma:~/Bureau/chahla/lab10$ **make min.o**
+```
+yasma@Yasma:~/Bureau/chahla/lab10$ make install
+mv My_binaire /home/yasma
+yasma@Yasma:~/Bureau/chahla/lab10$ make min.o
 make: « min.o » est à jour.
-yasma@Yasma:~/Bureau/chahla/lab10$ **make clean** 
+yasma@Yasma:~/Bureau/chahla/lab10$ make clean
 rm max.o min.o var.o
-
+```
 
 - On remarque que lorsqu'on execute la commande make dans le terminal y a toutes la liste de compilation dans le makefile qui s'excute (car y a une dépendance entre eux) 
 
@@ -77,6 +80,7 @@ clean:
 ```
 
 - Après cimpilation 
+
 yasma@Yasma:~/Bureau/chahla/lab10$ **make** 
 gcc  -Wall -c max.c -o max.o 
 gcc  -Wall -c min.c -o min.o
@@ -109,6 +113,7 @@ clean:
 ```
 
 - Après compilation:
+
 yasma@Yasma:~/Bureau/chahla/lab10$ **make** 
 gcc  -g -Wall  -c max.c -o max.o 
 gcc  -g -Wall  -c min.c -o min.o
@@ -160,7 +165,7 @@ gcc  -g -Wall test.o max.o min.o var.o -o My_binaire
 	endif
 	 
 install: My_binaire	
-	mv My_binaire /home/yasma 	
+	mv My_binaire /home/yasma 
 My_binaire:	${OBJ}
 	${CC} ${CC_OPTIONS} ${OBJ} -o $@
 max.o:	max.c
@@ -178,9 +183,11 @@ clean:
 
 8. 
 
-yasma@Yasma:~/Bureau/chahla/lab10$ **make clean**
+```
+
+yasma@Yasma:~/Bureau/chahla/lab10$ make clean
 rm max.o min.o var.o test.o
-yasma@Yasma:~/Bureau/chahla/lab10$ **make DEBUG=No**
+yasma@Yasma:~/Bureau/chahla/lab10$ make DEBUG=No
 gcc   -c max.c -o max.o
 gcc   -c min.c -o min.o
 gcc   -c var.c -o var.o
@@ -189,13 +196,15 @@ gcc   max.o min.o var.o test.o -o My_binaire
 mv My_binaire /home/yasma 
 yasma@Yasma:~/Bureau/chahla/lab10$ make clean 
 rm max.o min.o var.o test.o
-yasma@Yasma:~/Bureau/chahla/lab10$ **make DEBUG=yes**
+yasma@Yasma:~/Bureau/chahla/lab10$ make DEBUG=yes
 gcc  -g -Wall -c max.c -o max.o
 gcc  -g -Wall -c min.c -o min.o
 gcc  -g -Wall -c var.c -o var.o
 gcc  -g -Wall -c test.c -o test.o
 gcc  -g -Wall max.o min.o var.o test.o -o My_binaire
 mv My_binaire /home/yasma 
+
+```
 	
 
 9. 
@@ -235,9 +244,12 @@ test.o:	test.c
 clean: 
 	rm ${OBJ}
 ```
-yasma@Yasma:~/Bureau/chahla/lab10$ **make clean**
+
+
+```
+yasma@Yasma:~/Bureau/chahla/lab10$ make clean
 rm max.o min.o var.o test.o
-yasma@Yasma:~/Bureau/chahla/lab10$ **make DEBUG=yes**
+yasma@Yasma:~/Bureau/chahla/lab10$ make DEBUG=yes
 gcc  -g -Wall -c max.c -o max.o
 gcc  -g -Wall -c min.c -o min.o
 gcc  -g -Wall -c var.c -o var.o
@@ -246,9 +258,12 @@ gcc  -g -Wall max.o min.o var.o test.o -o My_binaire
 Génération en mode Debug
 mv My_binaire /home/yasma 
 
-yasma@Yasma:~/Bureau/chahla/lab10$ **make clean** 
+```
+
+```
+yasma@Yasma:~/Bureau/chahla/lab10$ make clean
 rm max.o min.o var.o test.o
-yasma@Yasma:~/Bureau/chahla/lab10$ **make DEBUG=No**
+yasma@Yasma:~/Bureau/chahla/lab10$ make DEBUG=No
 gcc   -c max.c -o max.o
 gcc   -c min.c -o min.o
 gcc   -c var.c -o var.o
@@ -256,3 +271,5 @@ gcc   -c test.c -o test.o
 gcc   max.o min.o var.o test.o -o My_binaire
 Génération en mode Release
 mv My_binaire /home/yasma 
+
+```
