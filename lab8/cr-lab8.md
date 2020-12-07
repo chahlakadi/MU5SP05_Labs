@@ -55,29 +55,41 @@ int main ()
 - Pour la compilation:
 
 yasma@Yasma:~/Bureau/chahla/lab8$ **gcc main.c min.c max.c -o main**
+
 yasma@Yasma:~/Bureau/chahla/lab8$ ./main
+
 Nombre d'elements ? 7
 Max = 19
 Min = 1
 
 7. Créer deux répertoire include et lib dans opt:
 
+
 cd /opt
 yasma@Yasma:/opt$ **sudo mkdir include**
+
 yasma@Yasma:/opt$ **sudo mkdir lib**
 
 8. Deplacer les fichiers max.h et min.h dans include:
 
+
 yasma@Yasma:~$ **sudo mv Bureau/chahla/lab8/max.h /opt/include**
+
 yasma@Yasma:~$ **sudo mv Bureau/chahla/lab8/min.h /opt/include**
+
 yasma@Yasma:~$ **cd /opt/include/**
+
 yasma@Yasma:/opt/include$ **ls**
+
 max.h  min.h
 
 - Déplacer la bibliothèque statique liboutils.a dans lib:
 
+
 yasma@Yasma:~$ **sudo mv Bureau/chahla/lab8/liboutils.a /opt/lib**
+
 yasma@Yasma:~$ **cd /opt/lib/**
+
 yasma@Yasma:/opt/lib$ **ls**
 liboutils.a
 
@@ -111,6 +123,7 @@ yasma@Yasma:~/Bureau/chahla/lab8$ **gcc -c var.c**
 - On copie d'abord var.o dans notre reprtoire lib (le meme répertoire que la bibliothèque) 
 
 - On rajoute le var.o à la bibliothèque liboutils
+
 yasma@Yasma:~/Bureau/chahla/lab8$ **sudo cp var.o /opt/lib**
 
 yasma@Yasma:/opt/lib$ **ar -r liboutils.a var.o**
